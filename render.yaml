@@ -1,0 +1,18 @@
+# Render Blueprint for the freeCodeCamp Stock Price Checker.
+# Render reads this file automatically when you create a "Blueprint" from the
+# repo. See https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: stock-price-checker
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      # Enables the freeCodeCamp in-process test runner used by the grader.
+      - key: NODE_ENV
+        value: test
+      # MongoDB connection string. Set as a SECRET in the Render dashboard
+      # (sync: false means it is not stored in this file / git).
+      - key: DB
+        sync: false
